@@ -16,25 +16,25 @@ const categorias = [
                 id: 0,
                 nombre: "iPhone13",
                 almacenamiento: (128 + "gb"),
-                precio: (500 + "usd"),
+                precio: 500,
             },
             {
                 id: 1,
                 nombre: "iPhone14",
                 almacenamiento: (128 + "gb"),
-                precio: (700 + "usd"),
+                precio: 700,
             },
             {
                 id: 2,
                 nombre: "iPhone15",
                 almacenamiento: (128 + "gb"),
-                precio: (900 + "usd"),
+                precio: 900,
             },
             {
                 id: 3,
                 nombre: "iPhone16",
                 almacenamiento: (128 + "gb"),
-                precio: (1200 + "usd"),
+                precio: 1200,
             }
         ]
     },
@@ -45,28 +45,28 @@ const categorias = [
                 id: 4,
                 nombre: "MacBook Air",
                 almacenamiento: (128 + "gb"),
-                precio: (1000 + "usd"),
+                precio: 1000,
                 chip: "M2"
             },
             {
                 id: 5,
                 nombre: "MacBook Air",
                 almacenamiento: (128 + "gb"),
-                precio: (1200 + "usd"),
+                precio: 1200,
                 chip: "M3"
             },
             {
                 id: 6,
                 nombre: "MacBook Pro",
                 almacenamiento: (128 + "gb"),
-                precio: (1600 + "usd"),
+                precio: 1600,
                 chip: "M4"
             },
             {
                 id: 7,
                 nombre: "MacBook Pro",
                 almacenamiento: (128 + "gb"),
-                precio: (2000 + "usd"),
+                precio: 2000,
                 chip: "M4 PRO"
             }
         ]
@@ -77,31 +77,58 @@ const categorias = [
             {
                 id: 8,
                 nombre: "Iphone Case",
-                precio: (50 + "usd"),
+                precio: 50,
             },
             {
                 id: 9,
                 nombre: "iPhone charger",
-                precio: (20 + "usd"),
+                precio: 20,
             },
             {
                 id: 10,
                 nombre: "MacBook Air Case",
-                precio: (20 + "usd"),
+                precio: 20,
             },
             {
                 id: 11,
                 nombre: "MacBook Pro Case",
-                precio: (30 + "usd"),
+                precio: 30,
             },
             {
                 id: 12,
                 nombre: "MacBook charger",
-                precio: (70 + "usd"),
+                precio: 70,
             }
         ]
     }
 ];
 //se define un objeto por cada categoria y cada categoria tiene su propio grupo de productos (arrays individuales que a su vez seran objetos)
-console.log(categorias);
+// console.log(categorias);
 //Menu
+const opcionesMenu = ["1.Ver Productos", "2.Agregar producto", "3.Carrito", "4.Salir"];
+console.log(opcionesMenu);
+
+let seleccionMenu;
+//tener en cta que el valor opcionesMneu.length=4
+do {
+    seleccionMenu = parseInt(prompt("Selecciona una de las opciones del menu que se muestra en consola"));
+    if (seleccionMenu > opcionesMenu.length || seleccionMenu < 0) {
+        alert("Porfavor selecciona una opcion creada");
+    }
+} while (seleccionMenu < 1 || seleccionMenu > opcionesMenu.length || isNaN(seleccionMenu));
+
+switch (seleccionMenu) {
+    case 1:
+        console.log(`Selecciono ${opcionesMenu[0]}`);
+        break;
+    case 2:
+        console.log(`Selecciono ${opcionesMenu[1]}`);
+        break;
+    case 3:
+        console.log(`Selecciono ${opcionesMenu[2]}`);
+        break;
+    case 4:
+        console.log(`Selecciono ${opcionesMenu[3]}`);
+        break;
+
+}
