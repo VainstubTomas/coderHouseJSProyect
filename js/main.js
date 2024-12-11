@@ -5,8 +5,6 @@
 //Ver carrito- FUNCION
 //Salir
 
-//1º
-
 //definicion de un array con productos base de la tienda
 const categorias = [
     {
@@ -103,12 +101,44 @@ const categorias = [
     }
 ];
 //se define un objeto por cada categoria y cada categoria tiene su propio grupo de productos (arrays individuales que a su vez seran objetos)
+
 // console.log(categorias);
+
+//Clase para cada producto
+class celular {
+    constructor(id, nombre, almacenamiento, precio) {
+        this.id = id;
+        this.nombre = nombre;
+        this.almacenamiento = almacenamiento;
+        this.precio = precio;
+    }
+}
+
+class laptop {
+    constructor(id, nombre, almacenamiento, precio, chip) {
+        this.id = id;
+        this.nombre = nombre;
+        this.almacenamiento = almacenamiento;
+        this.precio = precio;
+        this.chip = chip;
+    }
+}
+
+class accesorio {
+    constructor(id, nombre, precio) {
+        this.id = id;
+        this.nombre = nombre;
+        this.precio = precio;
+    }
+}
+
 //Menu
+
 const opcionesMenu = ["1.Ver Productos", "2.Agregar producto", "3.Carrito", "4.Salir"];
 console.log(opcionesMenu);
 
 let seleccionMenu;
+
 //tener en cta que el valor opcionesMneu.length=4
 do {
     seleccionMenu = parseInt(prompt("Selecciona una de las opciones del menu que se muestra en consola"));
