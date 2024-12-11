@@ -42,28 +42,28 @@ const categorias = [
             {
                 id: 4,
                 nombre: "MacBook Air",
-                almacenamiento: (128 + "gb"),
+                almacenamiento: (500 + "gb"),
                 precio: 1000,
                 chip: "M2"
             },
             {
                 id: 5,
                 nombre: "MacBook Air",
-                almacenamiento: (128 + "gb"),
+                almacenamiento: (500 + "gb"),
                 precio: 1200,
                 chip: "M3"
             },
             {
                 id: 6,
                 nombre: "MacBook Pro",
-                almacenamiento: (128 + "gb"),
+                almacenamiento: (500 + "gb"),
                 precio: 1600,
                 chip: "M4"
             },
             {
                 id: 7,
                 nombre: "MacBook Pro",
-                almacenamiento: (128 + "gb"),
+                almacenamiento: (500 + "gb"),
                 precio: 2000,
                 chip: "M4 PRO"
             }
@@ -102,8 +102,6 @@ const categorias = [
 ];
 //se define un objeto por cada categoria y cada categoria tiene su propio grupo de productos (arrays individuales que a su vez seran objetos)
 
-// console.log(categorias);
-
 //Clase para cada producto
 class celular {
     constructor(id, nombre, almacenamiento, precio) {
@@ -134,31 +132,62 @@ class accesorio {
 
 //Menu
 
-const opcionesMenu = ["1.Ver Productos", "2.Agregar producto", "3.Carrito", "4.Salir"];
-console.log(opcionesMenu);
+const opcionesMenu = ["Ver Productos", "Agregar producto", "Carrito", "Salir"];
+
+//Esta funcion nos ayuda a que los elementos del script se ejecuten una vez renderizado lo del DOM
+
+document.addEventListener("DOMContentLoaded", () => {
 
 let seleccionMenu;
 
 //tener en cta que el valor opcionesMneu.length=4
 do {
-    seleccionMenu = parseInt(prompt("Selecciona una de las opciones del menu que se muestra en consola"));
+    seleccionMenu = parseInt(prompt("Selecciona una de las opciones disponibles"));
     if (seleccionMenu > opcionesMenu.length || seleccionMenu < 0) {
-        alert("Porfavor selecciona una opcion creada");
+        alert("Porfavor selecciona una opcion valida");
     }
 } while (seleccionMenu < 1 || seleccionMenu > opcionesMenu.length || isNaN(seleccionMenu));
 
+//se define el carrito el cual comienza vacio
+
+const carrito = [];
+
 switch (seleccionMenu) {
     case 1:
-        console.log(`Selecciono ${opcionesMenu[0]}`);
+        console.log(`Selecciono "${opcionesMenu[0]}"`);
+
+        //Se definen las variables de los sub-arrays para poder utilizar el metodo .lenght dentro del FOR
+        const celulares = categorias.find(categoria => categoria.categoria === "Celulares").productos;
+        const laptops = categorias.find(categoria => categoria.categoria === "Laptops").productos;
+        const accesorios = categorias.find(categoria => categoria.categoria === "Accesorios").productos;
+
+        //automatizamos la cantidad de productos en una sola variable
+        let cantidadProductos = celulares.length + laptops.length + accesorios.length ;
+
+        //ciclo for para mostrar productos disponibles
+        for(let i = 0; i < cantidadProductos; i++){
+
+        }
+
         break;
     case 2:
-        console.log(`Selecciono ${opcionesMenu[1]}`);
+        console.log(`Selecciono "${opcionesMenu[1]}"`);
+
+        //Agregar producto
+
         break;
     case 3:
-        console.log(`Selecciono ${opcionesMenu[2]}`);
+        console.log(`Selecciono "${opcionesMenu[2]}"`);
+
+        //Ver carrito
+
         break;
     case 4:
-        console.log(`Selecciono ${opcionesMenu[3]}`);
-        break;
+        console.log(`Selecciono "${opcionesMenu[3]}"`);
 
+        //salir
+
+        break;
 }
+
+});
