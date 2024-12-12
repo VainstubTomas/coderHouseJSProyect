@@ -152,16 +152,30 @@ do {
 
 const carrito = [];
 
+//variables y ctes utilizadas en algun switch
+
+    //el mapeo me muestra todos los elementos del array que yo quiero, en este caso categorias:
+    //categorias.map = ("celulares", "laptops", "accesorios")
+    //flat aplana la seleccion, unifica, en este caso los elementos dentro de cada categoria
+    //categorias.flatmap = ("13", "14", etc)
+const verProductos = categorias.flatMap(categoria => categoria.productos);
+    //aca con el metodo find encontramos dentro del array padre el array en donde queres agregar el producto
+const celular = categorias.find(categoria=>categoria.categoria==="Celulares");
+const laptop = categorias.find(categoria=>categoria.categoria==="Laptops");
+const accesorio = categorias.find(categoria=>categoria.categoria==="Accesorios");
+let nombreProducto;
+let precioProducto;
+let almacenamientoProducto;
+let chipProducto;
+    
 switch (seleccionMenu) {
     case 1:
         console.log(`Selecciono "${opcionesMenu[0]}"`);
 
-        const verProductos = categorias.flatMap(categoria => categoria.productos);
-
         //ciclo for para mostrar productos disponibles
-        for(let i = 0; i < verProductos.length; i++){
-             console.log(verProductos[i].nombre);
-         }
+         for(let i = 0; i < verProductos.length; i++){
+              console.log(verProductos[i].nombre);
+        }
 
         break;
     case 2:
@@ -170,24 +184,59 @@ switch (seleccionMenu) {
         //Agregar producto
         let seleccionCategoria = prompt("Seleccione la categoria donde quiere agregar un producto");
 
-        if(seleccionCategoria === 1 || (seleccionCategoria === "Celular" || seleccionCategoria === "celular") || (seleccionCategoria === "Celulares" || seleccionCategoria === "celulares")){
-            // categorias.push{  
-            //     prompt("Nombre del producto");
-            //     prompt("Capacidad de almacenamiento");
-            //     prompt("Precio");
-            // };
-        } else if(seleccionCategoria === 2 || (seleccionCategoria === "Laptop" || seleccionCategoria === "laptop") || (seleccionCategoria === "Laptops" || seleccionCategoria === "laptops")){
-            // categorias.push{  
-            //     prompt("Nombre del producto");
-            //     prompt("Capacidad de almacenamiento");
-            //     prompt("Chip/Procesador");
-            //     prompt("Precio");
-            // };
-        } else if(seleccionCategoria === 3 || (seleccionCategoria === "accesorio" || seleccionCategoria === "Accesorio") || (seleccionCategoria === "accesorios" || seleccionCategoria === "Accesorios")){
-            // categorias.push{  
-            //     prompt("Nombre del producto");
-            //     prompt("Precio");
-            // };
+        if(seleccionCategoria === 1 || seleccionCategoria.toLowerCase === "celular"  || seleccionCategoria.toLowerCase === "celulares" || seleccionCategoria === "celulares"){
+
+            //pedimos los valores del nuevo producto
+            nombreProducto = prompt("Nombre del producto");
+            almacenamientoProducto = prompt("Almacenamiento");
+            precioProducto = parseInt(prompt("Precio"));
+
+            // Generar un nuevo ID dinámicamente
+
+            const nuevoCelular = {
+                // id: nuevoId,
+                nombre: nombreProducto,
+                almacenamiento: almacenamientoProducto,
+                precio: precioProducto,
+            };
+           
+            //se suben al array
+            celular.productos.push(nuevoCelular);
+
+            alert("Cargado con exito!");
+            console.log(verProductos);
+            
+        } else if(seleccionCategoria === 2 || seleccionCategoria.toLowerCase ==="laptop" || seleccionCategoria.toLowerCase === "laptops"){
+
+            // peticion de valores
+
+            const nuevoLaptop = {
+                // id: nuevoId,
+                nombre: nombreProducto,
+                almacenamiento: almacenamientoProducto,
+                precio: precioProducto,
+                chip: chipProducto,
+            };
+
+            //subida
+
+            alert("Cargado con exito!");
+            console.log(verProductos);
+
+        } else if(seleccionCategoria === 3 || seleccionCategoria.toLowerCase === "accesorio" || seleccionCategoria.toLowerCase === "accesorios"){
+           
+            //peticion de valores
+
+            const nuevoAccesorio = {
+                id: nuevoId,
+                nombre: nombreProducto,
+                precio: precioProducto,
+            };
+
+            //subida
+
+            alert("Cargado con exito!");
+            console.log(verProductos);
         } else {
             alert("No selecciono una opcion valida");
         }
