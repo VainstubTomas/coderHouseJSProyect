@@ -163,6 +163,7 @@ let verProductos = categorias.flatMap(categoria => categoria.productos);
 const celular = categorias.find(categoria=>categoria.categoria==="Celulares");
 const laptop = categorias.find(categoria=>categoria.categoria==="Laptops");
 const accesorio = categorias.find(categoria=>categoria.categoria==="Accesorios");
+    //promps para la carga de nuevos productos
 let nombreProducto;
 let precioProducto;
 let almacenamientoProducto;
