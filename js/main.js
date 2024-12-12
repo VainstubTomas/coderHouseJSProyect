@@ -168,6 +168,8 @@ let nombreProducto;
 let precioProducto;
 let almacenamientoProducto;
 let chipProducto;
+    //
+let volverSalir;
     
 switch (seleccionMenu) {
     case 1:
@@ -178,7 +180,14 @@ switch (seleccionMenu) {
               console.log(verProductos[i].nombre);
         }
 
-        break;
+        volverSalir = confirm("Desea volver al menu?");
+
+        if(volverSalir!=false){
+            seleccionMenu = parseInt(prompt("Selecciona una de las opciones disponibles"));
+        } else {
+            break;
+        }
+
     case 2:
         console.log(`Selecciono "${opcionesMenu[1]}"`);
 
@@ -237,7 +246,14 @@ switch (seleccionMenu) {
             seleccionCategoria = prompt("Seleccione la categoria donde quiere agregar un producto");
         }
 
-        break;
+        volverSalir = confirm("Desea volver al menu?");
+
+        if(volverSalir!=false){
+            seleccionMenu = parseInt(prompt("Selecciona una de las opciones disponibles"));
+        } else {
+            break;
+        }
+
     case 3:
         console.log(`Selecciono "${opcionesMenu[2]}"`);
 
