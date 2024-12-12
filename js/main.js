@@ -156,24 +156,41 @@ switch (seleccionMenu) {
     case 1:
         console.log(`Selecciono "${opcionesMenu[0]}"`);
 
-        //Se definen las variables de los sub-arrays para poder utilizar el metodo .lenght dentro del FOR
-        const celulares = categorias.find(categoria => categoria.categoria === "Celulares").productos;
-        const laptops = categorias.find(categoria => categoria.categoria === "Laptops").productos;
-        const accesorios = categorias.find(categoria => categoria.categoria === "Accesorios").productos;
-
-        //automatizamos la cantidad de productos en una sola variable
-        let cantidadProductos = celulares.length + laptops.length + accesorios.length ;
+        const verProductos = categorias.flatMap(categoria => categoria.productos);
 
         //ciclo for para mostrar productos disponibles
-        for(let i = 0; i < cantidadProductos; i++){
-
-        }
+        for(let i = 0; i < verProductos.length; i++){
+             console.log(verProductos[i].nombre);
+         }
 
         break;
     case 2:
         console.log(`Selecciono "${opcionesMenu[1]}"`);
 
         //Agregar producto
+        let seleccionCategoria = prompt("Seleccione la categoria donde quiere agregar un producto");
+
+        if(seleccionCategoria === 1 || (seleccionCategoria === "Celular" || seleccionCategoria === "celular") || (seleccionCategoria === "Celulares" || seleccionCategoria === "celulares")){
+            // categorias.push{  
+            //     prompt("Nombre del producto");
+            //     prompt("Capacidad de almacenamiento");
+            //     prompt("Precio");
+            // };
+        } else if(seleccionCategoria === 2 || (seleccionCategoria === "Laptop" || seleccionCategoria === "laptop") || (seleccionCategoria === "Laptops" || seleccionCategoria === "laptops")){
+            // categorias.push{  
+            //     prompt("Nombre del producto");
+            //     prompt("Capacidad de almacenamiento");
+            //     prompt("Chip/Procesador");
+            //     prompt("Precio");
+            // };
+        } else if(seleccionCategoria === 3 || (seleccionCategoria === "accesorio" || seleccionCategoria === "Accesorio") || (seleccionCategoria === "accesorios" || seleccionCategoria === "Accesorios")){
+            // categorias.push{  
+            //     prompt("Nombre del producto");
+            //     prompt("Precio");
+            // };
+        } else {
+            alert("No selecciono una opcion valida");
+        }
 
         break;
     case 3:
