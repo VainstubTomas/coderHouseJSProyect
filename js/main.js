@@ -132,7 +132,7 @@ class Accesorio {
 
 //Menu
 
-const opcionesMenu = ["Ver Productos", "Agregar producto", "Carrito", "Salir"];
+const opcionesMenu = ["Ver Productos", "Agregar producto", "Carrito"];
 
 //Esta funcion nos ayuda a que los elementos del script se ejecuten una vez renderizado lo del DOM
 
@@ -242,11 +242,9 @@ switch (seleccionMenu) {
 
         //Ver carrito
 
-        break;
-    case 4:
-        console.log(`Selecciono "${opcionesMenu[3]}"`);
-
-        //salir
+        if(carrito.length === 0){
+            alert("Su carrito esta vacio");
+        }
 
         break;
 }
