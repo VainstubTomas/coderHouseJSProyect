@@ -103,7 +103,7 @@ const categorias = [
 //se define un objeto por cada categoria y cada categoria tiene su propio grupo de productos (arrays individuales que a su vez seran objetos)
 
 //Clase para cada producto
-class celular {
+class Celular {
     constructor(id, nombre, almacenamiento, precio) {
         this.id = id;
         this.nombre = nombre;
@@ -112,7 +112,7 @@ class celular {
     }
 }
 
-class laptop {
+class Laptop {
     constructor(id, nombre, almacenamiento, precio, chip) {
         this.id = id;
         this.nombre = nombre;
@@ -122,7 +122,7 @@ class laptop {
     }
 }
 
-class accesorio {
+class Accesorio {
     constructor(id, nombre, precio) {
         this.id = id;
         this.nombre = nombre;
@@ -158,7 +158,7 @@ const carrito = [];
     //categorias.map = ("celulares", "laptops", "accesorios")
     //flat aplana la seleccion, unifica, en este caso los elementos dentro de cada categoria
     //categorias.flatmap = ("13", "14", etc)
-const verProductos = categorias.flatMap(categoria => categoria.productos);
+let verProductos = categorias.flatMap(categoria => categoria.productos);
     //aca con el metodo find encontramos dentro del array padre el array en donde queres agregar el producto
 const celular = categorias.find(categoria=>categoria.categoria==="Celulares");
 const laptop = categorias.find(categoria=>categoria.categoria==="Laptops");
@@ -184,7 +184,7 @@ switch (seleccionMenu) {
         //Agregar producto
         let seleccionCategoria = prompt("Seleccione la categoria donde quiere agregar un producto");
 
-        if(seleccionCategoria === 1 || seleccionCategoria.toLowerCase === "celular"  || seleccionCategoria.toLowerCase === "celulares" || seleccionCategoria === "celulares"){
+        if(seleccionCategoria === "celular"  || seleccionCategoria === "celulares"){
 
             //pedimos los valores del nuevo producto
             nombreProducto = prompt("Nombre del producto");
@@ -192,53 +192,48 @@ switch (seleccionMenu) {
             precioProducto = parseInt(prompt("Precio"));
 
             // Generar un nuevo ID dinámicamente
-
-            const nuevoCelular = {
-                // id: nuevoId,
-                nombre: nombreProducto,
-                almacenamiento: almacenamientoProducto,
-                precio: precioProducto,
-            };
            
             //se suben al array
-            celular.productos.push(nuevoCelular);
+            celular.productos.push(new Celular(nombreProducto, almacenamientoProducto, precioProducto));
 
             alert("Cargado con exito!");
+            //actualizacion de la lista de productos y visualizacion
+            verProductos = categorias.flatMap(categoria => categoria.productos);
             console.log(verProductos);
             
-        } else if(seleccionCategoria === 2 || seleccionCategoria.toLowerCase ==="laptop" || seleccionCategoria.toLowerCase === "laptops"){
+        } else if(seleccionCategoria ==="laptop" || seleccionCategoria === "laptops"){
 
             // peticion de valores
-
-            const nuevoLaptop = {
-                // id: nuevoId,
-                nombre: nombreProducto,
-                almacenamiento: almacenamientoProducto,
-                precio: precioProducto,
-                chip: chipProducto,
-            };
+            nombreProducto = prompt("Nombre del producto");
+            almacenamientoProducto = prompt("Almacenamiento");
+            precioProducto = parseInt(prompt("Precio"));
+            chipProducto = prompt("Chip o tipo de procesador");
 
             //subida
+            laptop.productos.push(new Laptop(nombreProducto, almacenamientoProducto, precioProducto, chipProducto));
 
             alert("Cargado con exito!");
+            //actualizacion de la lista de productos y visualizacion
+            verProductos = categorias.flatMap(categoria => categoria.productos);
             console.log(verProductos);
 
-        } else if(seleccionCategoria === 3 || seleccionCategoria.toLowerCase === "accesorio" || seleccionCategoria.toLowerCase === "accesorios"){
+        } else if(seleccionCategoria === "accesorio" || seleccionCategoria === "accesorios"){
            
             //peticion de valores
-
-            const nuevoAccesorio = {
-                id: nuevoId,
-                nombre: nombreProducto,
-                precio: precioProducto,
-            };
+            nombreProducto = prompt("Nombre del producto");
+            precioProducto = parseInt(prompt("Precio"));
 
             //subida
+            accesorio.productos.push(new Accesorio(nombreProducto, precioProducto));
 
             alert("Cargado con exito!");
+            //actualizacion de la lista de productos y visualizacion
+            verProductos = categorias.flatMap(categoria => categoria.productos);
             console.log(verProductos);
+
         } else {
             alert("No selecciono una opcion valida");
+            seleccionCategoria = prompt("Seleccione la categoria donde quiere agregar un producto");
         }
 
         break;
