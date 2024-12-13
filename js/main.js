@@ -164,6 +164,7 @@ const celular = categorias.find(categoria=>categoria.categoria==="Celulares");
 const laptop = categorias.find(categoria=>categoria.categoria==="Laptops");
 const accesorio = categorias.find(categoria=>categoria.categoria==="Accesorios");
     //promps para la carga de nuevos productos
+let identificadorProducto;
 let nombreProducto;
 let precioProducto;
 let almacenamientoProducto;
@@ -197,6 +198,7 @@ switch (seleccionMenu) {
         if(seleccionCategoria === "celular"  || seleccionCategoria === "celulares"){
 
             //pedimos los valores del nuevo producto
+            identificadorProducto = prompt("ID del producto");
             nombreProducto = prompt("Nombre del producto");
             almacenamientoProducto = prompt("Almacenamiento");
             precioProducto = parseInt(prompt("Precio"));
@@ -204,7 +206,7 @@ switch (seleccionMenu) {
             // Generar un nuevo ID dinámicamente
            
             //se suben al array
-            celular.productos.push(new Celular(nombreProducto, almacenamientoProducto, precioProducto));
+            celular.productos.push(new Celular(identificadorProducto, nombreProducto, almacenamientoProducto, precioProducto));
 
             alert("Cargado con exito!");
             //actualizacion de la lista de productos y visualizacion
@@ -214,13 +216,14 @@ switch (seleccionMenu) {
         } else if(seleccionCategoria ==="laptop" || seleccionCategoria === "laptops"){
 
             // peticion de valores
+            identificadorProducto = prompt("ID del producto");
             nombreProducto = prompt("Nombre del producto");
             almacenamientoProducto = prompt("Almacenamiento");
             precioProducto = parseInt(prompt("Precio"));
             chipProducto = prompt("Chip o tipo de procesador");
 
             //subida
-            laptop.productos.push(new Laptop(nombreProducto, almacenamientoProducto, precioProducto, chipProducto));
+            laptop.productos.push(new Laptop(identificadorProducto, nombreProducto, almacenamientoProducto, precioProducto, chipProducto));
 
             alert("Cargado con exito!");
             //actualizacion de la lista de productos y visualizacion
@@ -230,11 +233,12 @@ switch (seleccionMenu) {
         } else if(seleccionCategoria === "accesorio" || seleccionCategoria === "accesorios"){
            
             //peticion de valores
+            identificadorProducto = prompt("ID del producto");
             nombreProducto = prompt("Nombre del producto");
             precioProducto = parseInt(prompt("Precio"));
 
             //subida
-            accesorio.productos.push(new Accesorio(nombreProducto, precioProducto));
+            accesorio.productos.push(new Accesorio(identificadorProducto, nombreProducto, precioProducto));
 
             alert("Cargado con exito!");
             //actualizacion de la lista de productos y visualizacion
