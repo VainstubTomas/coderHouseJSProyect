@@ -171,6 +171,35 @@ let almacenamientoProducto;
 let chipProducto;
     //
 let volverSalir;
+
+//funciones para la carga de nuevos productos
+
+function cargaCelular(id, nombre, almacenamiento, precio){
+    id = prompt("ID del producto");
+    nombre = prompt("Nombre del producto");
+    almacenamiento = prompt("Almacenamiento");
+    precio = parseInt(prompt("Precio"));
+    //retorna un obj
+    return {id, nombre, almacenamiento, precio};
+};
+
+function cargaLaptop(id, nombre, almacenamiento, precio, chip){
+    id = prompt("ID del producto");
+    nombre = prompt("Nombre del producto");
+    almacenamiento = prompt("Almacenamiento");
+    precio = parseInt(prompt("Precio"));
+    chip = prompt("Chip o tipo de procesador");
+    //retorna un obj
+    return {id, nombre, almacenamiento, precio, chip};
+};
+
+function cargaAccesorio(id, nombre, precio){
+    id = prompt("ID del producto");
+    nombre = prompt("Nombre del producto");
+    precio = parseInt(prompt("Precio"));
+    //retorna un obj
+    return {id, nombre, precio};
+};
     
 switch (seleccionMenu) {
     case 1:
@@ -197,16 +226,11 @@ switch (seleccionMenu) {
 
         if(seleccionCategoria === "celular"  || seleccionCategoria === "celulares"){
 
-            //pedimos los valores del nuevo producto
-            identificadorProducto = prompt("ID del producto");
-            nombreProducto = prompt("Nombre del producto");
-            almacenamientoProducto = prompt("Almacenamiento");
-            precioProducto = parseInt(prompt("Precio"));
-
-            // Generar un nuevo ID dinámicamente
+            //pedimos los valores del nuevo producto desestructurando el objeto
+            const {id, nombre, almacenamiento, precio} = cargaCelular();
            
             //se suben al array
-            celular.productos.push(new Celular(identificadorProducto, nombreProducto, almacenamientoProducto, precioProducto));
+            celular.productos.push(new Celular(id, nombre, almacenamiento, precio));
 
             alert("Cargado con exito!");
             //actualizacion de la lista de productos y visualizacion
@@ -216,14 +240,10 @@ switch (seleccionMenu) {
         } else if(seleccionCategoria ==="laptop" || seleccionCategoria === "laptops"){
 
             // peticion de valores
-            identificadorProducto = prompt("ID del producto");
-            nombreProducto = prompt("Nombre del producto");
-            almacenamientoProducto = prompt("Almacenamiento");
-            precioProducto = parseInt(prompt("Precio"));
-            chipProducto = prompt("Chip o tipo de procesador");
+            const {id, nombre, almacenamiento, precio, chip} = cargaLaptop();
 
             //subida
-            laptop.productos.push(new Laptop(identificadorProducto, nombreProducto, almacenamientoProducto, precioProducto, chipProducto));
+            laptop.productos.push(new Laptop(id, nombre, almacenamiento, precio, chip));
 
             alert("Cargado con exito!");
             //actualizacion de la lista de productos y visualizacion
@@ -233,12 +253,10 @@ switch (seleccionMenu) {
         } else if(seleccionCategoria === "accesorio" || seleccionCategoria === "accesorios"){
            
             //peticion de valores
-            identificadorProducto = prompt("ID del producto");
-            nombreProducto = prompt("Nombre del producto");
-            precioProducto = parseInt(prompt("Precio"));
+            const {id, nombre, precio} = cargaAccesorio();
 
             //subida
-            accesorio.productos.push(new Accesorio(identificadorProducto, nombreProducto, precioProducto));
+            accesorio.productos.push(new Accesorio(id, nombre, precio));
 
             alert("Cargado con exito!");
             //actualizacion de la lista de productos y visualizacion
