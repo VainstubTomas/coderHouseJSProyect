@@ -134,10 +134,6 @@ class Accesorio {
 
 const opcionesMenu = ["Ver Productos", "Agregar producto", "Carrito"];
 
-//Esta funcion nos ayuda a que los elementos del script se ejecuten una vez renderizado lo del DOM
-
-document.addEventListener("DOMContentLoaded", () => {
-
 let seleccionMenu;
 
 //tener en cta que el valor opcionesMneu.length=4
@@ -203,11 +199,11 @@ function cargaAccesorio(id, nombre, precio){
     
 switch (seleccionMenu) {
     case 1:
-        console.log(`Selecciono "${opcionesMenu[0]}"`);
+        alert(`Selecciono "${opcionesMenu[0]}"`);
 
         //ciclo for para mostrar productos disponibles
          for(let i = 0; i < verProductos.length; i++){
-              console.log(verProductos[i].nombre);
+              alert(verProductos[i].nombre);
         }
 
         volverSalir = confirm("Desea volver al menu?");
@@ -219,7 +215,7 @@ switch (seleccionMenu) {
         }
 
     case 2:
-        console.log(`Selecciono "${opcionesMenu[1]}"`);
+        alert(`Selecciono "${opcionesMenu[1]}"`);
 
         //Agregar producto
         let seleccionCategoria = prompt("Seleccione la categoria donde quiere agregar un producto");
@@ -277,7 +273,7 @@ switch (seleccionMenu) {
         }
 
     case 3:
-        console.log(`Selecciono "${opcionesMenu[2]}"`);
+        alert(`Selecciono "${opcionesMenu[2]}"`);
 
         //Ver carrito
 
@@ -287,5 +283,3 @@ switch (seleccionMenu) {
 
         break;
 }
-
-});
