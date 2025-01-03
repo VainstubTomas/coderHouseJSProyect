@@ -1,10 +1,3 @@
-//1º definir CLASE producto para en base a eso llenar el ARRAY de productos
-//2º Mostrar al usuario un menu de opciones - SWITCHES
-//Permitir comprar - FUNCION
-//Permitir Agregar productos- FUNCION
-//Ver carrito- FUNCION
-//Salir
-
 //definicion de un array con productos base de la tienda
 const categorias = [
     {
@@ -130,10 +123,6 @@ class Accesorio {
     }
 }
 
-//Menu
-
-const opcionesMenu = ["Ver Productos", "Agregar producto", "Carrito"];
-
 //Esta funcion nos ayuda a que los elementos del script se ejecuten una vez renderizado lo del DOM
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -142,23 +131,9 @@ const carrito = [];
 
 //variables y ctes utilizadas en algun switch
 
-    //el mapeo me muestra todos los elementos del array que yo quiero, en este caso categorias:
-    //categorias.map = ("celulares", "laptops", "accesorios")
-    //flat aplana la seleccion, unifica, en este caso los elementos dentro de cada categoria
-    //categorias.flatmap = ("13", "14", etc)
-let verProductos = categorias.flatMap(categoria => categoria.productos);
-    //aca con el metodo find encontramos dentro del array padre el array en donde queres agregar el producto
 const celular = categorias.find(categoria=>categoria.categoria==="Celulares");
 const laptop = categorias.find(categoria=>categoria.categoria==="Laptops");
 const accesorio = categorias.find(categoria=>categoria.categoria==="Accesorios");
-    //promps para la carga de nuevos productos
-let identificadorProducto;
-let nombreProducto;
-let precioProducto;
-let almacenamientoProducto;
-let chipProducto;
-    //
-let volverSalir;
 
 //funciones para la carga de nuevos productos
 

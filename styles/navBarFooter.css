@@ -13,9 +13,13 @@
     cursor: pointer;
 }
 
-a{
+.navBar a{
     color: white;
     text-decoration: none;
+}
+
+.navBar a:hover{
+    color: lightblue;
 }
 
 footer{
