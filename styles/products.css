@@ -7,22 +7,6 @@
     font-weight: bold;
 }
 
-.navBar{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
-    height: 70px;
-}
-
-.navBar ul{
-    display: flex;
-    list-style: none;
-    gap: 50px;
-    color: white;
-    cursor: pointer;
-}
-
 /* BANNER */
 
 
@@ -60,14 +44,4 @@
 
 .filtersLine{
     width: 90%;
-}
-
-footer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
-    height: 60px;
-    /* text-align: center; */
-    color: white;
 }

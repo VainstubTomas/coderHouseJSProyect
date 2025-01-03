@@ -1,0 +1,29 @@
+.navBar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    height: 70px;
+}
+
+.navBar ul{
+    display: flex;
+    list-style: none;
+    gap: 50px;
+    cursor: pointer;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    height: 60px;
+    /* text-align: center; */
+    color: white;
+}

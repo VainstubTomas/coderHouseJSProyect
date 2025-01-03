@@ -138,18 +138,6 @@ const opcionesMenu = ["Ver Productos", "Agregar producto", "Carrito"];
 
 document.addEventListener("DOMContentLoaded", () => {
 
-let seleccionMenu;
-
-//tener en cta que el valor opcionesMneu.length=4
-do {
-    seleccionMenu = parseInt(prompt("Selecciona una de las opciones disponibles"));
-    if (seleccionMenu > opcionesMenu.length || seleccionMenu < 0) {
-        alert("Porfavor selecciona una opcion valida");
-    }
-} while (seleccionMenu < 1 || seleccionMenu > opcionesMenu.length || isNaN(seleccionMenu));
-
-//se define el carrito el cual comienza vacio
-
 const carrito = [];
 
 //variables y ctes utilizadas en algun switch
@@ -202,82 +190,9 @@ function cargaAccesorio(id, nombre, precio){
 };
     
 switch (seleccionMenu) {
-    case 1:
-        console.log(`Selecciono "${opcionesMenu[0]}"`);
+    case 1: //VER CARRITO Y SUS ALTERNATIVAS
 
-        //ciclo for para mostrar productos disponibles
-         for(let i = 0; i < verProductos.length; i++){
-              console.log(verProductos[i].nombre);
-        }
-
-        volverSalir = confirm("Desea volver al menu?");
-
-        if(volverSalir!=false){
-            seleccionMenu = parseInt(prompt("Selecciona una de las opciones disponibles"));
-        } else {
-            break;
-        }
-
-    case 2:
-        console.log(`Selecciono "${opcionesMenu[1]}"`);
-
-        //Agregar producto
-        let seleccionCategoria = prompt("Seleccione la categoria donde quiere agregar un producto");
-
-        if(seleccionCategoria === "celular"  || seleccionCategoria === "celulares"){
-
-            //pedimos los valores del nuevo producto desestructurando el objeto
-            const {id, nombre, almacenamiento, precio} = cargaCelular();
-           
-            //se suben al array
-            celular.productos.push(new Celular(id, nombre, almacenamiento, precio));
-
-            alert("Cargado con exito!");
-            //actualizacion de la lista de productos y visualizacion
-            verProductos = categorias.flatMap(categoria => categoria.productos);
-            console.log(verProductos);
-            
-        } else if(seleccionCategoria ==="laptop" || seleccionCategoria === "laptops"){
-
-            // peticion de valores
-            const {id, nombre, almacenamiento, precio, chip} = cargaLaptop();
-
-            //subida
-            laptop.productos.push(new Laptop(id, nombre, almacenamiento, precio, chip));
-
-            alert("Cargado con exito!");
-            //actualizacion de la lista de productos y visualizacion
-            verProductos = categorias.flatMap(categoria => categoria.productos);
-            console.log(verProductos);
-
-        } else if(seleccionCategoria === "accesorio" || seleccionCategoria === "accesorios"){
-           
-            //peticion de valores
-            const {id, nombre, precio} = cargaAccesorio();
-
-            //subida
-            accesorio.productos.push(new Accesorio(id, nombre, precio));
-
-            alert("Cargado con exito!");
-            //actualizacion de la lista de productos y visualizacion
-            verProductos = categorias.flatMap(categoria => categoria.productos);
-            console.log(verProductos);
-
-        } else {
-            alert("No selecciono una opcion valida");
-            seleccionCategoria = prompt("Seleccione la categoria donde quiere agregar un producto");
-        }
-
-        volverSalir = confirm("Desea volver al menu?");
-
-        if(volverSalir!=false){
-            seleccionMenu = parseInt(prompt("Selecciona una de las opciones disponibles"));
-        } else {
-            break;
-        }
-
-    case 3:
-        console.log(`Selecciono "${opcionesMenu[2]}"`);
+        //Posible variacion con -> DOM y EVENTS
 
         //Ver carrito
 
@@ -286,6 +201,11 @@ switch (seleccionMenu) {
         }
 
         break;
+
+    case 2: //AGREGAR PRODUCTOS
+        
 }
+
+//VER COMO HACER UN FILTRO EN LA PAGINA PRODUCTOS
 
 });
