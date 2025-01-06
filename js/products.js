@@ -127,7 +127,7 @@ class Accesorio {
 
 document.addEventListener("DOMContentLoaded", () => {
 
-const carrito = [];
+
 
 //variables y ctes utilizadas en algun switch
 

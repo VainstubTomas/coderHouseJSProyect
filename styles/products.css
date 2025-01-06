@@ -33,17 +33,38 @@
 #productsContainer{
     display: grid;
     grid-template-columns: repeat(2, 30% 50%);
+    margin: 20px 0px 20px 20px;
+    
 }
 
 #filters{
     background-color: rgba(128, 128, 128, 0.247);
-    height: auto;
+    height: 200px;
     width: 60%;
     font-size: 30px;
-    margin: 20px 0px 20px 20px;
     padding: 20px 0px 20px 20px;
 }
 
 .hrFilterProd{
     width: 90%;
+}
+
+.productsGrid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.productsGrid .productImg{
+    height: 300px;
+}
+
+.productsGrid .buttonForCartAdd{
+    height: 50px;
+}
+
+.productContainer{
+    max-width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
