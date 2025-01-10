@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CoderHouseJS - Phones</title>
+    <title>CoderHouseJS - Products</title>
     <link rel="stylesheet" href="../styles/products.css">
     <link rel="stylesheet" href="../styles/navBarFooter.css">
 </head>
@@ -34,34 +34,76 @@
             <div id="filters">
                 <p class="filterTitle">Filters</p>
                 <hr class="hrFilterProd">
-                <div class="typeFilter"></div>
-                    <p>Phones</p>
-                    <p>Laptops</p>
-                    <p>Accesories</p>
+                <div class="typeFilter">
+                    <!-- data-category para aplicarle logica con js similar a los botones e identificadores de productos -->
+                    <label>
+                        <input type="checkbox" data-category="phone" class="filterCheckbox">
+                        <p class="filterButton">Phones</p>
+                    </label>
+                    <label>
+                        <input type="checkbox" data-category="laptop" class="filterCheckbox">
+                        <p class="filterButton">Laptops</p>
+                    </label>
+                    <label>
+                        <input type="checkbox" data-category="accesorie" class="filterCheckbox">
+                        <p class="filterButton">Accesories</p>
+                    </label> 
                 </div>
             </div>
 
             <div class="productsGrid">
-                <div class="productContainer">
-                    <img src="../assets/iphone11.png" alt="" class="productImg" data-id="2" data-name="Producto 2" data-price="150">
+                <div class="productContainer" data-category="phone">
+                    <img src="../assets/iphone11.png" alt="" class="productImg">
+                    <p class="prodTitle">iPhone 11</p>
+                    <p>Color: White</p>
+                    <p class="prodStorage">128gb</p>
+                    <p class="prodPrice">$500</p>
+                    <p class="buttonAddProd" data-id="0" data-name="iPhone11" data-price="500">Add cart</p>
                 </div>
-                <div class="productContainer">
-                    <img src="../assets/iphone15pro.png" alt="" class="productImg" data-id="2" data-name="Producto 2" data-price="150">
+                <div class="productContainer" data-category="phone">
+                    <img src="../assets/iphone15pro.png" alt="" class="productImg">
+                    <p class="prodTitle">iPhone 15</p>
+                    <p>Color: Black</p>
+                    <p class="prodStorage">128gb</p>
+                    <p class="prodPrice">$700</p>
+                    <p class="buttonAddProd" data-id="1" data-name="iPhone15" data-price="700">Add cart</p>
                 </div>
-                <div class="productContainer">
-                    <img src="../assets/mac1.png" alt="" class="productImg" data-id="2" data-name="Producto 2" data-price="150">
+                <div class="productContainer" data-category="laptop">
+                    <img src="../assets/mac1.png" alt="" class="productImg">
+                    <p class="prodTitle">Mac Air</p>
+                    <p>Color: Spacial Gray</p>
+                    <p class="prodStorage">500gb</p>
+                    <p class="prodPrice">$1000</p>
+                    <p class="buttonAddProd" data-id="2" data-name="MacAir" data-price="1000">Add cart</p>
                 </div>
-                <div class="productContainer">
-                    <img src="../assets/mac2.png" alt="" class="productImg" data-id="2" data-name="Producto 2" data-price="150">
+                <div class="productContainer" data-category="laptop">
+                    <img src="../assets/mac2.png" alt="" class="productImg">
+                    <p class="prodTitle">Macbook Pro</p>
+                    <p>Color: Navy Blue</p>
+                    <p class="prodStorage">500gb</p>
+                    <p class="prodPrice">$2000</p>
+                    <p class="buttonAddProd" data-id="3" data-name="MacbookPro" data-price="2000">Add cart</p>
                 </div>
-                <div class="productContainer">
-                    <img src="../assets/airpodsMax.png" alt="" class="productImg" data-id="2" data-name="Producto 2" data-price="150">
+                <div class="productContainer" data-category="accesorie">
+                    <img src="../assets/airpodsMax.png" alt="" class="productImg">
+                    <p class="prodTitle">Airpods Max</p>
+                    <p>Color: White</p>
+                    <p class="prodPrice">$1500</p>
+                    <p class="buttonAddProd" data-id="4" data-name="airpodsMax" data-price="1500">Add cart</p>
                 </div>
-                <div class="productContainer">
-                    <img src="../assets/airpods.png" alt="" class="productImg" data-id="2" data-name="Producto 2" data-price="150">
+                <div class="productContainer" data-category="accesorie">
+                    <img src="../assets/airpods.png" alt="" class="productImg">
+                    <p class="prodTitle">Airpods G4</p>
+                    <p>Color: White</p>
+                    <p class="prodPrice">$400</p>
+                    <p class="buttonAddProd" data-id="5" data-name="AirpodsG4" data-price="400">Add cart</p>
                 </div>
-                <div class="productContainer">
-                    <img src="../assets/applewatch.png" alt="" class="productImg" data-id="2" data-name="Producto 2" data-price="150">
+                <div class="productContainer" data-category="accesorie">
+                    <img src="../assets/applewatch.png" alt="" class="productImg">
+                    <p class="prodTitle">Applewatch</p>
+                    <p>Color: Black</p>
+                    <p class="prodPrice">$1200</p>
+                    <p class="buttonAddProd" data-id="6" data-name="Applewatch" data-price="1200">Add cart</p>
                 </div>
             </div>
 

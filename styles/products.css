@@ -34,7 +34,8 @@
     display: grid;
     grid-template-columns: repeat(2, 30% 50%);
     margin: 20px 0px 20px 20px;
-    
+    min-height: 500px; /* Ajusta este valor según tus necesidades */
+
 }
 
 #filters{
@@ -42,6 +43,7 @@
     height: 200px;
     width: 60%;
     font-size: 30px;
+    margin-left: 60px;
     padding: 20px 0px 20px 20px;
 }
 
@@ -52,6 +54,7 @@
 .productsGrid{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
 }
 
 .productsGrid .productImg{
@@ -65,6 +68,59 @@
 .productContainer{
     max-width: 400px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.156);
+    border-radius: 15px;
+    padding: 20px 0px 20px 0px;
+}
+
+.prodTitle{
+    font-size: 25px;
+}
+
+.prodStorage{
+    font-size: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.156);
+    border-radius: 15px;
+    width: 60px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.prodPrice{
+    font-size: 25px;
+}
+
+.buttonAddProd{
+    background-color: lightblue;
+    width: 100px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.buttonAddProd:hover{
+    background-color: rgb(104, 185, 212);
+}
+
+label{
+    display: flex;
+    gap: 20px;
+}
+
+input{
+    width:30px;
+}
+
+.hidden {
+    display: none;
 }
