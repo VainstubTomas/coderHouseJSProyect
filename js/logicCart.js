@@ -1,11 +1,6 @@
 //el carrito se va a inicilizar validando si tiene o no elementos
 const carrito = JSON.parse(localStorage.getItem("carrito")||"[]");
-
-//como en este ejemplo cargar elementos al carrito depende de pushear y actualizar
-// carrito.push("iPhone 13");
-// localStorage.setItem("carrito", JSON.stringify(carrito));
-// carrito.push("iPhone 16");
-// localStorage.setItem("carrito", JSON.stringify(carrito));
+// console.log(carrito);
 
 //para sumar al carrito en base a un boton hay que llamarlos del DOM por su clase
 
@@ -33,34 +28,51 @@ Array.from(botonesPagProductos).forEach(boton =>{
     })
 })
 
-//filtros pagina productos
+//reflejar productos en el carrito
+function renderCarrito() {
+    //definimos una variable para el contenedor de lo que vamos a reflejar
+    const detailsContainer = document.querySelector(".details");
 
-let filtros = document.querySelectorAll(".typeFilter .filterCheckbox");
+    // Limpiar el contenedor antes de agregar los productos para que no hayan duplicados
+    detailsContainer.innerHTML = `
+        <div class="details">
+                <div class="detailFiles">
+                    <div>
+                        <h4 class="imgName">Product</h4>
+                    </div>
+                    <div>
+                        <h4 class="price">Price</h4>
+                    </div>
+                    <div>
+                        <h4 class="cant">Total</h4>
+                    </div>
+                </div>       
+            </div>
+    `;
 
-//para manejar los estados de los filtros
-const filtrosSeleccionados = [];
+    //se crea una cadena de txt para cada elemento
+    carrito.forEach(product => {
+        const productHTML = `
+        <div class="productDetail">
+                <div class="detailFiles">
+                    <div class="productColumn">
+                        <p class="imgName">${product.name}</p>
+                    </div>
+                    <div class="productColumn">
+                        <p class="price">${product.price}</p>
+                    </div>
+                    <div class="productColumn">
+                        <p class="cant">1</p>
+                    </div>
+                </div>       
+            </div>
+        `;
+        //la cantidad de productos la puedo hacer mapeando el array y contar la cant de ese producto y que lo sume
 
-Array.from(filtros).forEach(filtro => {
-    filtro.addEventListener("click", (event) => {
-        const seleccionFiltro = event.target.getAttribute("data-category");
-
-        if (!filtrosSeleccionados.includes(seleccionFiltro)) {
-            filtrosSeleccionados.push(seleccionFiltro);
-        } else {
-             // Filtra el array para eliminar el filtro seleccionado
-             const index = filtrosSeleccionados.indexOf(seleccionFiltro);
-             if (index !== -1) {
-                 filtrosSeleccionados.splice(index, 1);
-             }
-        }
-
-        document.querySelectorAll(".productContainer").forEach(product => {
-            const productCategory = product.getAttribute('data-category');
-            if (filtrosSeleccionados.length === 0 || filtrosSeleccionados.includes(productCategory)) {
-                product.classList.remove('hidden');
-            } else {
-                product.classList.add('hidden');
-            }
-        });
+        detailsContainer.insertAdjacentHTML('beforeend', productHTML);
+        //beforeend asegura que los elementos que se vayan agregando se agreguen al final
     });
-});
+}
+
+// Llamar a renderCarrito cuando se cargue la página
+document.addEventListener("DOMContentLoaded", renderCarrito);
