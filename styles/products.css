@@ -7,6 +7,10 @@
     font-weight: bold;
 }
 
+main{
+    max-width: 100%;
+}
+
 /* BANNER */
 
 
