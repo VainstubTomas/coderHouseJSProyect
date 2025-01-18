@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+}
+
+/* BANNER */
+
+
+.banner1{
+    max-width: 100vw;
+}
+
+.banner1 img{
+    width: 100%;
+}
+
+.banner3{
+    text-align: center;
+    padding: 10px 0px 50px 0px;
+}
+
+.banner3 img{
+    width: 40%;
+}
+
+
+/*  */
+
+#productsContainer{
+    display: grid;
+    grid-template-columns: repeat(2, 30% 50%);
+    margin: 20px 0px 20px 20px;
+    min-height: 500px; /* Ajusta este valor según tus necesidades */
+
+}
+
+#filters{
+    background-color: rgba(128, 128, 128, 0.247);
+    height: 200px;
+    width: 60%;
+    font-size: 30px;
+    margin-left: 60px;
+    padding: 20px 0px 20px 20px;
+}
+
+.hrFilterProd{
+    width: 90%;
+}
+
+.productsGrid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.productsGrid .productImg{
+    height: 300px;
+}
+
+.productsGrid .buttonForCartAdd{
+    height: 50px;
+}
+
+.productContainer{
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.156);
+    border-radius: 15px;
+    padding: 20px 0px 20px 0px;
+}
+
+.prodTitle{
+    font-size: 25px;
+}
+
+.prodStorage{
+    font-size: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.156);
+    border-radius: 15px;
+    width: 60px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.prodPrice{
+    font-size: 25px;
+}
+
+.buttonAddProd{
+    background-color: lightblue;
+    width: 100px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.buttonAddProd:hover{
+    background-color: rgb(104, 185, 212);
+}
+
+label{
+    display: flex;
+    gap: 20px;
+}
+
+input{
+    width:30px;
+}
+
+.hidden {
+    display: none;
+}
