@@ -7,10 +7,6 @@
     font-weight: bold;
 }
 
-main{
-    max-width: 100%;
-}
-
 /* BANNER */
 
 
@@ -45,7 +41,7 @@ main{
 
 #filters{
     background-color: rgba(128, 128, 128, 0.247);
-    height: 200px;
+    height: 150px;
     width: 60%;
     font-size: 30px;
     margin-left: 40px;
@@ -59,14 +55,12 @@ main{
 .productsGrid{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    /* overflow-x: hidden; */
-    max-width: 90%;
-    box-sizing: border-box;
+    gap: 20px;
+    max-width: 100%;
 }
 
 .productsGrid .productImg{
-    height: 300px;
+    height: 200px;
 }
 
 .productsGrid .buttonForCartAdd{
@@ -74,7 +68,7 @@ main{
 }
 
 .productContainer{
-    max-width: 100%;
+    max-width: 90%;
     display: flex;
     flex-direction: column;
     justify-content: center;
