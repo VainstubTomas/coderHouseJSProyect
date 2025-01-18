@@ -53,7 +53,7 @@ function renderCarrito() {
     //se crea una cadena de txt para cada elemento
     carrito.forEach(product => {
         const productHTML = `
-        <div class="productDetail">
+        <div class="details">
                 <div class="detailFiles">
                     <div class="productColumn">
                         <p class="imgName">${product.name}</p>

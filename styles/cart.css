@@ -14,21 +14,28 @@
 
 .details{
     margin-left: 30px;
-}
-
-.detailFiles{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    max-width: 80%;
     display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+.titles{
+    display: flex;
+    width: 100%;
+    gap: 350px;
+}
+
+.detailFiles {
+    display: flex;
+    align-items: center;
     justify-content: space-between;
+    width: 100%;
+    gap: 350px;
 }
 
-.productColumn{
-    padding: 10px 0px 10px 0px;
-}
 
-h2, hr{
+h2, hr, .payResumeBox p{
     color: white;
 }
 
@@ -45,10 +52,24 @@ h4{
     background-color: black;
     margin: 10px 10px 10px 10px;
     border-radius: 15px;
-    text-align: center;
-    padding-top: 20px;
+    text-align: left;
+    padding: 20px 0px 0px 20px;
     min-height: 620px;
     height: auto;
+}
+
+.payResumeBox p{
+    padding-top: 30px;
+}
+
+.payResumeBox .button{
+    background-color: white;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
 }
 
 .titleDetail{
