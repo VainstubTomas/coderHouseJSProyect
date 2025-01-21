@@ -31,40 +31,37 @@ Array.from(botonesPagProductos).forEach(boton =>{
 //reflejar productos en el carrito
 function renderCarrito() {
     //definimos una variable para el contenedor de lo que vamos a reflejar
-    const detailsContainer = document.querySelector(".details");
+    const detailsContainer = document.querySelector(".contenedorColumnas");
 
     // Limpiar el contenedor antes de agregar los productos para que no hayan duplicados
     detailsContainer.innerHTML = `
-        <div class="details">
-                <div class="detailFiles">
-                    <div>
-                        <h4 class="imgName">Product</h4>
+       <div class="contenedorColumnas">
+                <div class="columnasGrupo">
+                    <div class="columna">
+                        <h4>Product</h4>
                     </div>
-                    <div>
-                        <h4 class="price">Price</h4>
+                    <div class="columna">
+                        <h4>Price</h4>
                     </div>
-                    <div>
-                        <h4 class="cant">Total</h4>
+                    <div class="columna">
+                        <h4>Total</h4>
                     </div>
-                </div>       
+                </div>
+                <div class="contenedorDeProductos">
+                </div>
             </div>
     `;
 
     //se crea una cadena de txt para cada elemento
     carrito.forEach(product => {
         const productHTML = `
-        <div class="details">
-                <div class="detailFiles">
-                    <div class="productColumn">
-                        <p class="imgName">${product.name}</p>
-                    </div>
-                    <div class="productColumn">
-                        <p class="price">${product.price}</p>
-                    </div>
-                    <div class="productColumn">
-                        <p class="cant">1</p>
-                    </div>
-                </div>       
+        <div class="contenedorColumnas">
+                
+                <div class="contenedorDeProductos">
+                    <p class="imgName">${product.name}</p>
+                    <p class="price">$${product.price}</p>
+                    <p class="cant">1</p>
+                </div>
             </div>
         `;
         //la cantidad de productos la puedo hacer mapeando el array y contar la cant de ese producto y que lo sume
