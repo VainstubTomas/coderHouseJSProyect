@@ -97,3 +97,11 @@ h2, hr, .payResumeBox p{
     background-color: rgb(66, 134, 157);
     color: white;
 }
+
+.sumButton, .restButton{
+    width: 30px;
+    height: 30px;
+    border: none;
+    margin: 0px 10px 0px 10px;
+    cursor: pointer;
+}

@@ -15,7 +15,6 @@ Array.from(botonesPagProductos).forEach(boton =>{
         let id = event.target.getAttribute("data-id");
         let name = event.target.getAttribute("data-name");
         let price = parseFloat(event.target.getAttribute("data-price"));
-        let quantity = 0;
         //verificacion de si el producto esta o no en el carrito
 
         let product = carrito.find(item => item.id === id);
@@ -35,13 +34,13 @@ Array.from(botonesPagProductos).forEach(boton =>{
         };
 
         //actualizamos el carrito
-        localStorage.setItem("carrito", JSON.stringify(carrito))
+        localStorage.setItem("carrito", JSON.stringify(carrito));
 
          // Mostrar notificación de Toastify
          Toastify({
 
             text: `${name} ha sido agregado al carrito`,
-            duration: 1500,
+            duration: 2000,
             gravity: "bottom", 
             position: "left",
             destination: "../pages/cart.html"
@@ -52,6 +51,7 @@ Array.from(botonesPagProductos).forEach(boton =>{
 
 //reflejar productos en el carrito
 function renderCarrito() {
+    const carrito = JSON.parse(localStorage.getItem("carrito") || "[]");
     //definimos una variable para el contenedor de lo que vamos a reflejar
     const detailsContainer = document.querySelector(".contenedorColumnas");
 
@@ -74,32 +74,61 @@ function renderCarrito() {
             </div>
     `;
 
-    //se crea una cadena de txt para cada elemento
-    carrito.forEach(product => {
+    // Crear una cadena de texto para cada elemento del carrito
+    carrito.forEach((product, index) => {
         const productHTML = `
-        <div class="contenedorColumnas">
+            <div class="contenedorColumnas">
                 <div class="contenedorDeProductos">
                     <p class="imgName">${product.name}</p>
                     <p class="price">$${product.price}</p>
-                    <p class="cant">${product.quantity}</p>
+                    <p class="cant"><button class="sumButton" data-index="${index}">+</button>${product.quantity}<button class="restButton" data-index="${index}">-</button></p>
                 </div>
             </div>
         `;
-
         detailsContainer.insertAdjacentHTML('beforeend', productHTML);
-        //beforeend asegura que los elementos que se vayan agregando se agreguen al final
     });
+
+    //Sumar, restar o eliminar cantidad de productos en el carrito
+
+    const plusButtons = document.querySelectorAll(".sumButton");
+    const restButtons = document.querySelectorAll(".restButton");
+
+
+    plusButtons.forEach(button => {
+        button.addEventListener("click", (event) => {
+            const index = event.target.getAttribute("data-index");
+            carrito[index].quantity += 1;
+            localStorage.setItem("carrito", JSON.stringify(carrito));
+            renderCarrito(); // Vuelve a renderizar el carrito para reflejar los cambios
+        });
+    });
+
+    restButtons.forEach(button => {
+        button.addEventListener("click", (event) => {
+            const index = event.target.getAttribute("data-index");
+            if (carrito[index].quantity > 1) {
+                carrito[index].quantity -= 1;
+            } else {
+                carrito.splice(index, 1); // Elimina el producto si la cantidad es 0
+                
+            }
+            localStorage.setItem("carrito", JSON.stringify(carrito));
+            renderCarrito(); // Vuelve a renderizar el carrito para reflejar los cambios
+    
+        });
+    });
+
+    //RESUMEN DE PAGO
+
+    let totalPagar = 0;
+
+    carrito.forEach(product=>{
+        totalPagar += product.price * product.quantity;
+    });
+
+    document.getElementById("totalPagar").textContent = `$${totalPagar.toFixed(2)}`;
+
 }
-
-let totalPagar = 0;
-
-carrito.forEach(product=>{
-    totalPagar += product.price * product.quantity;
-});
-
-console.log(totalPagar);
-
-document.getElementById("totalPagar").textContent = `$ ${totalPagar}`
 
 // Llamar a renderCarrito cuando se cargue la página
 document.addEventListener("DOMContentLoaded", renderCarrito);
