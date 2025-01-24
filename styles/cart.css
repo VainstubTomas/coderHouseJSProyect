@@ -28,29 +28,6 @@
     margin: 20px 0px 0px 20px;
 }
 
-/* .details{
-    margin-left: 30px;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-} */
-
-/* .titles{
-    display: flex;
-    width: 100%;
-    gap: 350px;
-} */
-
-/* .detailFiles {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    gap: 350px;
-} */
-
-
 h2, hr, .payResumeBox p{
     color: white;
 }
@@ -87,4 +64,8 @@ h2, hr, .payResumeBox p{
     display: flex;
     justify-content: space-around;
     margin: 10px 10px 10px 10px;
+}
+
+#totalPagar{
+    padding-left: 250px;
 }

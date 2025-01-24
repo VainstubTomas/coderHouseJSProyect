@@ -24,7 +24,7 @@ Array.from(botonesPagProductos).forEach(boton =>{
         //lo agrego al array y lo subo al storage
         carrito.push(product);
         localStorage.setItem("carrito", JSON.stringify(carrito))
-        alert("Add to cart");
+        // alert("Add to cart"); reemplazo de alert por Notifiacion de Toastify
     })
 })
 
@@ -70,6 +70,15 @@ function renderCarrito() {
         //beforeend asegura que los elementos que se vayan agregando se agreguen al final
     });
 }
+
+let totalPagar = 0;
+
+carrito.forEach(product=>{
+    let valor = parseInt(product.price);
+    totalPagar += valor;
+});
+
+document.getElementById("totalPagar").textContent = `$ ${totalPagar}`
 
 // Llamar a renderCarrito cuando se cargue la página
 document.addEventListener("DOMContentLoaded", renderCarrito);
