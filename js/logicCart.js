@@ -24,7 +24,13 @@ Array.from(botonesPagProductos).forEach(boton =>{
         //lo agrego al array y lo subo al storage
         carrito.push(product);
         localStorage.setItem("carrito", JSON.stringify(carrito))
-        // alert("Add to cart"); reemplazo de alert por Notifiacion de Toastify
+         // Mostrar notificación de Toastify
+         Toastify({
+            text: `${name} ha sido agregado al carrito`,
+            duration: 1500,
+            gravity: "bottom", 
+            position: "left"
+        }).showToast();
     })
 })
 
