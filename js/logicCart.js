@@ -14,22 +14,38 @@ Array.from(botonesPagProductos).forEach(boton =>{
         //primero se interpreta que producto se va a sumar en base a targets
         let id = event.target.getAttribute("data-id");
         let name = event.target.getAttribute("data-name");
-        let price = event.target.getAttribute("data-price");
-        //creo un objeto de ese producto
-        const product = {
-            "id": id,
-            "name": name,
-            "price": price
-        }
-        //lo agrego al array y lo subo al storage
-        carrito.push(product);
+        let price = parseFloat(event.target.getAttribute("data-price"));
+        let quantity = 0;
+        //verificacion de si el producto esta o no en el carrito
+
+        let product = carrito.find(item => item.id === id);
+
+        if(product){
+            //si existe sumamos cantidad pero no lo volvemos a agregar
+            product.quantity += 1;
+        } else {
+            product = {
+                id: id,
+                name: name,
+                price: price,
+                quantity: 1
+            };
+            //lo agrego al array y lo subo al storage
+            carrito.push(product);
+        };
+
+        //actualizamos el carrito
         localStorage.setItem("carrito", JSON.stringify(carrito))
+
          // Mostrar notificación de Toastify
          Toastify({
+
             text: `${name} ha sido agregado al carrito`,
             duration: 1500,
             gravity: "bottom", 
-            position: "left"
+            position: "left",
+            destination: "../pages/cart.html"
+
         }).showToast();
     })
 })
@@ -62,15 +78,13 @@ function renderCarrito() {
     carrito.forEach(product => {
         const productHTML = `
         <div class="contenedorColumnas">
-                
                 <div class="contenedorDeProductos">
                     <p class="imgName">${product.name}</p>
                     <p class="price">$${product.price}</p>
-                    <p class="cant">1</p>
+                    <p class="cant">${product.quantity}</p>
                 </div>
             </div>
         `;
-        //la cantidad de productos la puedo hacer mapeando el array y contar la cant de ese producto y que lo sume
 
         detailsContainer.insertAdjacentHTML('beforeend', productHTML);
         //beforeend asegura que los elementos que se vayan agregando se agreguen al final
@@ -80,9 +94,10 @@ function renderCarrito() {
 let totalPagar = 0;
 
 carrito.forEach(product=>{
-    let valor = parseInt(product.price);
-    totalPagar += valor;
+    totalPagar += product.price * product.quantity;
 });
+
+console.log(totalPagar);
 
 document.getElementById("totalPagar").textContent = `$ ${totalPagar}`
 
