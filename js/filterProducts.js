@@ -1,8 +1,5 @@
-//filtros pagina productos
-
 let filtros = document.querySelectorAll(".typeFilter .filterCheckbox");
 
-//para manejar los estados de los filtros
 const filtrosSeleccionados = [];
 
 Array.from(filtros).forEach(filtro => {
@@ -12,7 +9,6 @@ Array.from(filtros).forEach(filtro => {
         if (!filtrosSeleccionados.includes(seleccionFiltro)) {
             filtrosSeleccionados.push(seleccionFiltro);
         } else {
-             // Filtra el array para eliminar el filtro seleccionado
              const index = filtrosSeleccionados.indexOf(seleccionFiltro);
              if (index !== -1) {
                  filtrosSeleccionados.splice(index, 1);

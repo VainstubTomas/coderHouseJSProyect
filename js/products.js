@@ -1,4 +1,3 @@
-//definicion de un array con productos base de la tienda
 const categorias = [
     {
         categoria: "Celulares",
@@ -57,9 +56,7 @@ const categorias = [
         ]
     }
 ];
-//se define un objeto por cada categoria y cada categoria tiene su propio grupo de productos (arrays individuales que a su vez seran objetos)
 
-//Clase para cada producto
 class Celular {
     constructor(id, nombre, almacenamiento, precio) {
         this.id = id;
